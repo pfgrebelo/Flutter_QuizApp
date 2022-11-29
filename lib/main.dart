@@ -74,13 +74,15 @@ class _QuizAppState extends State<QuizApp> {
         appBar: AppBar(
           title: const Text('Quiz App'),
         ),
-        body: hasQuestion
-            ? Quiz(
-                answerQuestion: _answerQuestion,
-                questionIndex: _questionIndex,
-                questions: _questions,
-              )
-            : Result(_totalScore, _resetQuiz),
+        body: SingleChildScrollView(
+          child: hasQuestion
+              ? Quiz(
+                  answerQuestion: _answerQuestion,
+                  questionIndex: _questionIndex,
+                  questions: _questions,
+                )
+              : Result(_totalScore, _resetQuiz),
+        ),
       ),
     );
   }
